@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import rinconparts from "./img/rinconparts.png";
 import CartWidget from "./CartWidget";
 
+{/* Barra de Navegacion */}
 
 const NavBar = () => {
     
@@ -42,4 +43,4 @@ const NavBar = () => {
     );
 }
 
-export default NavBar
+export default NavBar;

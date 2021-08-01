@@ -1,5 +1,7 @@
 import NavBar from "./NavBar";
 
+{/* Header de la Pagina */}
+
 const Header = () => {
 
     return(
@@ -9,4 +11,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;
