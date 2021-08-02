@@ -2,7 +2,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import rinconparts from "./img/rinconparts.png";
+import rinconparts from "./img/logo/rinconparts.png";
 import CartWidget from "./CartWidget";
 
 {/* Barra de Navegacion */}

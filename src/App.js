@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
 
-    const greeting = "Proximamente Nuestro Catalogo"
+    const greeting = "Nuestro Catalogo"
 
     return(
         <>
