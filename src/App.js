@@ -1,5 +1,6 @@
 import Header from "./components/Header"
 import ItemListContainer from "./components/ItemListContainer"
+import ItemDetailContainer from "./components/ItemDetailContainer"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
@@ -10,7 +11,11 @@ const App = () => {
         <>
             <body>
                 <Header/>
-                <ItemListContainer informacion={greeting}/>
+                {/*<ItemListContainer informacion={greeting}/>*/}
+
+                <p>Implementacion del ItemDetailContainer</p>
+
+                <ItemDetailContainer informacion={greeting}/>
             </body>
         </>
     )
