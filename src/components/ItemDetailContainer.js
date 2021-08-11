@@ -20,6 +20,7 @@ const ItemDetailContainer = () => {
         getItems.then((detalle) => {
             console.log("Actualizo el detalle");
             setItems(detalle)
+            console.log(detalle)
         })
     }, [params.id])
    

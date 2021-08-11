@@ -13,7 +13,7 @@ const ItemDetail = ({items}) => {
             <div className="container">
                 <div className="row">
                     <Card style={{ width: '15rem'}}>
-                        <Card.Img src={items.img} alt=" "/>
+                        <Card.Img src={items.img} alt={items.nombre}/>
                         <Card.Body>
                             <Card.Title>{items.nombre}</Card.Title>
                             <Card.Text>
