@@ -1,13 +1,13 @@
 import Item from "./Item"
 
 const ItemList = ({productos}) => {
-  console.log(productos)
+  
   return (
-    <ul>
+    <div>
         {productos.map(producto=>{
-          return <Item producto={producto}/>
+          return <Item key={producto.id} producto={producto}/>
         })}
-    </ul>
+    </div>
   )
 }
 

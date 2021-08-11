@@ -1,11 +1,11 @@
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import rinconparts from "./img/logo/rinconparts.png";
 import CartWidget from "./CartWidget";
+import {Link} from "react-router-dom";
 
-{/* Barra de Navegacion */}
+/* Barra de Navegacion */
 
 const NavBar = () => {
     
@@ -13,27 +13,32 @@ const NavBar = () => {
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">
-                        <img src={rinconparts}/>
-                    </Navbar.Brand>
+                    <Link to="/">
+                        <Navbar.Brand>
+                            <img src={rinconparts} alt=" "/>
+                        </Navbar.Brand>
+                    </Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#inicio">Inicio</Nav.Link>
-                            <Nav.Link href="#contacto">Contacto</Nav.Link>
-                            <NavDropdown title="Accesorios Vehiculos" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#motor">Motor</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#suspension">Suspensiòn y Direcciòn</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#iluminacion">Iluminaciòn</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#neumaticos">Neumàticos</NavDropdown.Item>
-                            </NavDropdown>
+
+                            <Link to="/">
+                                <Nav.Link>Inicio</Nav.Link>
+                            </Link>
+
+                            <Link to="/contacto">
+                                <Nav.Link>Contacto</Nav.Link>
+                            </Link>
+
+                            <Link to="/accesorios/categoria/1">
+                                <Nav.Link>Accesorios</Nav.Link>
+                            </Link>
                         </Nav>
                         
                         <Nav>
-                            <Nav.Link href="#registrarse">Registrarse</Nav.Link> 
+                            <Link to="/registrarse">
+                                <Nav.Link>Registrarse</Nav.Link>
+                            </Link>
                         </Nav>
                         <CartWidget/>
                     </Navbar.Collapse>

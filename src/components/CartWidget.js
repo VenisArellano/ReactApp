@@ -1,8 +1,7 @@
 import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
 import {FaOpencart} from "react-icons/fa";
 
-{/* Boton del Carrito */}
+/* Boton del Carrito */
 
 const CartWidget = () => {
 

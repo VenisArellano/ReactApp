@@ -2,7 +2,7 @@ import {useState} from "react";
 import Card from "react-bootstrap/Card";
 
 
-{/* Componente que suma y resta la cantidad del item */}
+/* Componente que suma y resta la cantidad del item */
 
 const ItemCount = ({stock, initial, onAdd}) => {
 

@@ -1,36 +1,31 @@
 import {useEffect, useState} from "react";
 import {stock} from "./stockProductos";
 import ItemDetail from "./ItemDetail";
+import {useParams} from "react-router-dom";
 
+/* Contenido de la Pagina */
 
+const ItemDetailContainer = () => {
 
-{/* Contenido de la Pagina */}
-
-const ItemDetailContainer = ({informacion}) => {
-
-    const [productos,setProductos] = useState([]);
-    const producto1 = stock[0];
+    const [items,setItems] = useState([]);
+    const params = useParams();
 
     useEffect(() => {
-        const getItems = new Promise ((res) => {
+        const getItems = new Promise ((resolve, reject) => {
             setTimeout(() => {
-                res(producto1)
+                resolve(stock.find(producto=>producto.id == params.id))
             }, 2000)
         })
 
         getItems.then((detalle) => {
             console.log("Actualizo el detalle");
-            setProductos(detalle)
+            setItems(detalle)
         })
-    }, [])
+    }, [params.id])
    
     return(
         <>
-            <p>{informacion}</p>
-            {/*<ItemList productos={productos}/>*/}
-
-            <ItemDetail productos={productos}/>
-
+            <ItemDetail items={items}/>
         </>
     )
 }
