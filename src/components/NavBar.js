@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import rinconparts from "./img/logo/rinconparts.png";
 import CartWidget from "./CartWidget";
 import {Link} from "react-router-dom";
-import Estilos from "./CSS/Estilos.css";
+
 
 /* Barra de Navegacion */
 
@@ -12,7 +12,7 @@ const NavBar = () => {
     
     return(
         <>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar className="navbar" collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
                     <Link to="/">
                         <Navbar.Brand>

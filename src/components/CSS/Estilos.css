@@ -18,3 +18,7 @@
     width: 30px;
     height: 30px;
 }
+
+.navbar {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+}

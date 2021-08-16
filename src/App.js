@@ -3,6 +3,8 @@ import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
+import Cart from "./components/Cart";
+import Estilos from "./components/CSS/Estilos.css";
 
 const App = () => {
 
@@ -23,6 +25,10 @@ const App = () => {
 
                 <Route path="/item/:id">
                     <ItemDetailContainer/>
+                </Route>
+
+                <Route path="/cart">
+                    <Cart/>
                 </Route>
             </Switch>
 
