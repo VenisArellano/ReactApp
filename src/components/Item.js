@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 
 
 
+
 const Item = ({producto}) => {
 
     return ( 
@@ -10,12 +11,12 @@ const Item = ({producto}) => {
                 <div className="container">
                     <div className="row">
                         <Card style={{ width: '15rem'}}>
-                            <Card.Img src={producto.img} />
+                            <img src={producto.img} />
                             <Card.Body>
-                                <Link to={`/item/${producto.id}`}>
+                                <Link to={`/item/${producto.id}`} className="text-decoration-none">
                                     <Card.Title>{producto.nombre}</Card.Title>
                                 </Link>
-                                <p> Precio: <strong>{producto.precio}</strong></p>
+                                <p> Precio: <strong>${producto.precio}</strong></p>
                             </Card.Body>
                         </Card>
                     </div>

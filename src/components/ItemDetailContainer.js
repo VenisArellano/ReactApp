@@ -8,21 +8,19 @@ import {useParams} from "react-router-dom";
 const ItemDetailContainer = () => {
 
     const [items,setItems] = useState([]);
-    const params = useParams();
+    const {id} = useParams();
 
     useEffect(() => {
         const getItems = new Promise ((resolve, reject) => {
             setTimeout(() => {
-                resolve(stock.find(producto=>producto.id == params.id))
+                resolve(stock.find(items=>items.id == id))
             }, 2000)
         })
 
         getItems.then((detalle) => {
-            console.log("Actualizo el detalle");
             setItems(detalle)
-            console.log(detalle)
         })
-    }, [params.id])
+    }, [id])
    
     return(
         <>

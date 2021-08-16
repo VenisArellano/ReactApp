@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import rinconparts from "./img/logo/rinconparts.png";
 import CartWidget from "./CartWidget";
 import {Link} from "react-router-dom";
+import Estilos from "./CSS/Estilos.css";
 
 /* Barra de Navegacion */
 
@@ -21,24 +22,21 @@ const NavBar = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
+                            <Link to="/" className="categorias">Inicio</Link>
+                            
+                            <Link to="/contacto" className="categorias">Contacto</Link>
+                            
+                            <Link to="/tipo/Llantas" className="categorias">Llantas</Link>
+                            
+                            <Link to="/tipo/Neumaticos" className="categorias">Neumàticos</Link>
 
-                            <Link to="/">
-                                <Nav.Link>Inicio</Nav.Link>
-                            </Link>
+                            <Link to="/tipo/Motor" className="categorias">Motor</Link>
 
-                            <Link to="/contacto">
-                                <Nav.Link>Contacto</Nav.Link>
-                            </Link>
-
-                            <Link to="/accesorios/categoria/1">
-                                <Nav.Link>Accesorios</Nav.Link>
-                            </Link>
+                            <Link to="/tipo/Accesorios" className="categorias">Accesorios</Link>
                         </Nav>
                         
                         <Nav>
-                            <Link to="/registrarse">
-                                <Nav.Link>Registrarse</Nav.Link>
-                            </Link>
+                            <Link to="/registrarse" className="categorias">Registrarse</Link>
                         </Nav>
                         <CartWidget/>
                     </Navbar.Collapse>

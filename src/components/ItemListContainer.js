@@ -8,24 +8,26 @@ import {useParams} from "react-router-dom";
 const ItemListContainer = ({informacion}) => {
 
     const [productos,setProductos] = useState([]);
-    const params = useParams();
+    const {id} = useParams();
 
     useEffect(() => {
       
-      const promise = new Promise((resolve,reject)=>{
+      const promise = new Promise((res)=>{
+        setProductos([]);
         setTimeout(() => {
-          if(params.id){
-            resolve(stock.filter(producto=>producto.id == params.id))
+          if(id){
+            res(stock.filter(p => p.tipo === id))
           }
           else {
-            resolve(stock)
+            res(stock)
           }
-        },2000)
+        }
+          , 2000)
       })
-  
-      promise.then((productos)=>setProductos(stock))
-    
-    },[params.id])
+      promise.then((producto) => {
+        setProductos(producto)
+      })
+    }, [id])
 
     return(
         <>

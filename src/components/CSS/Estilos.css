@@ -1,7 +1,20 @@
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+ }
 
-.cart {
+.categorias {
+    text-decoration: none;
+    color:rgb(158, 154, 154);
+    margin: 3px;
+}
 
-    height: 30px;
+.categorias:hover {
+    color: rgb(230, 230, 230);
+}
+
+.carrito {
     width: 30px;
-
+    height: 30px;
 }

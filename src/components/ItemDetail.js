@@ -2,6 +2,7 @@ import Card from "react-bootstrap/Card";
 import ItemCount from "./ItemCount";
 
 
+
 const ItemDetail = ({items}) => {
 
     const onAdd = (cantidad) => {
@@ -12,18 +13,17 @@ const ItemDetail = ({items}) => {
 
             <div className="container">
                 <div className="row">
+                    {(items.id) &&
                     <Card style={{ width: '15rem'}}>
-                        <Card.Img src={items.img} alt={items.nombre}/>
+                        <img src={items.img1} alt={items.nombre}/>
                         <Card.Body>
                             <Card.Title>{items.nombre}</Card.Title>
-                            <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
-                            </Card.Text>
-                            <p> Precio: <strong>{items.precio}</strong></p>
-                            <ItemCount stock={20} initial={1} onAdd={onAdd}/>
+                            <Card.Text>{items.descripcion}</Card.Text>
+                            <p> Precio: <strong>$ {items.precio}</strong></p>
+                            <ItemCount id={items.id} stock={items.stock} initial={1} onAdd={onAdd}/>
                         </Card.Body>
                     </Card>
+                    }
                 </div>
             </div>
        

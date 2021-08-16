@@ -8,7 +8,7 @@ const CartWidget = () => {
     return(
         <>
             <Navbar.Brand type="button"> 
-                <FaOpencart/>
+                <FaOpencart className="carrito"/>
             </Navbar.Brand>
         </>
     )
