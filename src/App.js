@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Cart from "./components/Cart";
 import Estilos from "./components/CSS/Estilos.css";
+import CartContext from "./components/CartContext";
 
 const App = () => {
 
@@ -36,4 +37,4 @@ const App = () => {
     )
 }
 
-export default App
+export default App;
