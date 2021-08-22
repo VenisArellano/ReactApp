@@ -1,27 +1,29 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import ItemCount from "./ItemCount";
-import {useState, useContext} from "react";
+import {useState} from "react";
 import {Link} from "react-router-dom";
-import CartContext from "./CartContext";
+import useCart from "./useCart";
 
 
 const ItemDetail = ({items}) => {
 
-    const {carrito, agregarAlCarrito} = useContext(CartContext);
-    const [terminarCompra, setTerminarCompra] = useState("");
+    const {addItem} = useCart();
 
-    let initial;
-    if (carrito.find((producto) => producto.id === items.id)) {
-        initial = parseInt(carrito.filter((producto) => producto.id === items.id).map((producto) => producto.cantidad));
-    } else {
-        initial = 1;
+    const [unidades, setUnidades] = useState();
+
+    const onAdd = (cantidad) => {
+        setUnidades(cantidad);
     }
 
-    const onAdd = () => {
-        setTerminarCompra(<Link to={`/cart`} className="">Terminar la compra</Link>);
+    const agregarItems = () => {
+        const cartItem = { item: items,
+            quantity: unidades
+        }
+        addItem(cartItem);
     }
 
+    if(unidades > 0) {
         return (
                 <div className="container">
                     <div className="row">
@@ -31,15 +33,35 @@ const ItemDetail = ({items}) => {
                             <Card.Body>
                                 <Card.Title>{items.nombre}</Card.Title>
                                 <Card.Text>{items.descripcion}</Card.Text>
-                                <p> Precio: <strong>$ {items.precio}</strong></p>
-                                <ItemCount producto={items} stock={items.stock} initial={initial} agregarAlCarrito={agregarAlCarrito} onAdd={onAdd}/>
-                                <Button variant="success">{terminarCompra}</Button>
+                                <p> Precio: <strong>$ {items.precio * unidades}</strong></p>
+                                <ItemCount id={items.id} stock={items.stock} initial={0} onAdd={onAdd}/>
+                                <Link to="/cart"><Button variant="success" onClick={agregarItems}>Terminar Compra</Button></Link>
                             </Card.Body>
                         </Card>
                         }
                     </div>
                 </div>
         );
+    }
+    else {
+        return (
+            <div className="container">
+                <div className="row">
+                    {(items.id) &&
+                    <Card style={{ width: '15rem'}}>
+                        <img src={items.img1} alt={items.nombre}/>
+                        <Card.Body>
+                            <Card.Title>{items.nombre}</Card.Title>
+                            <Card.Text>{items.descripcion}</Card.Text>
+                            <p> Precio: <strong>$ {items.precio}</strong></p>
+                            <ItemCount id={items.id} stock={items.stock} initial={0} onAdd={onAdd}/>
+                        </Card.Body>
+                    </Card>
+                    }
+                </div>
+            </div>
+        )
+    }
 }
 
 export default ItemDetail;

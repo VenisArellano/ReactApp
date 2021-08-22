@@ -9,7 +9,7 @@ const Item = ({producto}) => {
                 <div className="container">
                     <div className="row">
                         <Card style={{ width: '15rem'}}>
-                            <img src={producto.img} />
+                            <img src={producto.img} alt={producto.nombre} />
                             <Card.Body>
                                 <Link to={`/item/${producto.id}`} className="text-decoration-none">
                                     <Card.Title>{producto.nombre}</Card.Title>

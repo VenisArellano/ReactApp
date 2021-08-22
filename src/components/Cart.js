@@ -1,29 +1,44 @@
-import CartContext from "./CartContext";
-import {useContext} from "react";
+import Boton from "./Boton";
+import useCart from "./useCart";
 import {Link} from "react-router-dom";
-import ItemCart from "./ItemCart";
-import {FaTrash} from "react-icons/fa";
-
+import Button from "react-bootstrap/Button";
 
 
 const Cart = () => {
 
-    const {carrito, borrarDelCarrito, vaciarCarrito, precioTotal} = useContext(CartContext);
+    const {cart} = useCart();
 
-    
-    return (
+    return(
         <>
-            <h2>Carrito de compras</h2>
-            {carrito.length > 0 ? <div className=""><img onClick={vaciarCarrito} src={FaTrash} alt="" /><p>vaciar el carrito</p></div> : null } 
-            <section>
-            {carrito.length > 0 ? carrito.map( (item) => <ItemCart key={item.id} item={item} borrarDelCarrito={borrarDelCarrito} />) : <article><div className="">No hay productos en tu carrito. Te invitamos a que visites nuestra <Link to={`/`}><span className="">Tienda</span></Link></div></article>}
-            </section>
-            {carrito.length > 0 ?
-            <div className=""><div className=""><p>Total: $<span> {precioTotal}</span></p><button id="botonCheckout" className="" href="">Check out</button></div></div>
-            : null
+            {(cart.length > 0) ?
+                <article className="">
+                    <Boton text={'Vaciar Carrito'}/>
+                        <div>
+                            <boddy>
+                                {cart.map(i => (
+                                    <div key={i.item.id}>
+                                        <p>{i.item.nombre}</p>
+                                        <img src={i.item.img1} alt={i.item.nombre}/>
+                                        <p>{i.item.precio}</p>
+                                        <p>{i.quantity}</p>
+                                        <div>
+                                            <Boton id={i.item.id} text={'Eliminar'} />
+                                        </div>
+                                    </div>
+                                ))}
+                            </boddy>
+                        </div>
+                </article>
+                :
+                <container> 
+                    <h1> Carrito Vacío </h1>
+                    <Link to='/'>
+                        <Button variant="contained" color='primary' style={{backgroundColor: '#34A512'}}>Volver al inicio</Button>
+                    </Link> 
+                </container>
             }
         </>
     )
-};
+}
 
 export default Cart;

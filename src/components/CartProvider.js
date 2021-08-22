@@ -1,38 +1,54 @@
-import {useState} from "react";
-import {Provider} from ".CartContext";
+import {useState, createContext} from "react";
 
-const CartProvider = ({ defaultState = [],children}) => {
+export const CartContext = createContext();
 
-    const [carrito, setCarrito] = useState(defaultState);
+const {Provider} = CartContext; 
 
-    const agregarAlCarrito = (prod, cant) => {
-        const yaExiste = carrito.find((item) => item.id === prod.id);
-        if (!yaExiste) {
-            setCarrito([...carrito, {...prod, cantidad: cant}]);
-        } else {
-            const newProductos = carrito.map ((item) => {
-                if (item.id === prod.id) {
-                    return {...item, cantidad: cant, } 
-                } return item;
-            });
-            setCarrito(newProductos);
+const CartProvider = ({children}) => {
+ 
+        const [cart, setCart] = useState([]);
+        
+        const isInCart = (id) => {
+            return cart.some(obj => obj.item.id === id)
         }
-    }
-
-    function borrarDelCarrito (id) {
-        const borrar = carrito.filter( (item) => item.id !== id);
-        setCarrito(borrar);
-    }
-
-    function vaciarCarrito () {
-        setCarrito(defaultState);
-    }
-
-    return (
-    <Provider value={{carrito, setCarrito, agregarAlCarrito, borrarDelCarrito, vaciarCarrito}}>
-        {children}
-    </Provider>
-    );
+        
+        const addItem = (item) => {
+            if(isInCart(item.item.id)){
+                let index = cart.findIndex((obj => obj.item.id == item.item.id));
+                let cartItem = cart[index];
+                cartItem.quantity = cartItem.quantity + item.quantity
+                cart.splice(index, 1, cartItem);
+                setCart([...cart]);
+            } 
+            else {
+                setCart([...cart, item])
+            }
 }
-
+    
+        const removeItem = (itemID) => {
+                let index = cart.findIndex((obj => obj.item.id == itemID));
+                cart.splice(index, 1);
+                setCart([...cart]);
+        }
+    
+        const clear = () => {
+            setCart([])
+        }
+    
+        const ContextValue = {
+            cart,
+            addItem,
+            removeItem,
+            clear,
+            isInCart
+        }
+    
+        return (
+            <Provider value={ContextValue}>
+                {children}
+            </Provider>
+    
+        )
+    }
+    
 export default CartProvider; 

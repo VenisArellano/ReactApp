@@ -5,14 +5,14 @@ import Alert from 'react-bootstrap/Alert';
 import {Link} from "react-router-dom";
 
 
-const ItemCount = ({producto, stock, initial, agregarAlCarrito, onAdd}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
 
     const [contador, setContador] = useState(initial);
 
     const sumaContador = () => {
 
         if(contador < stock){
-            setContador(contador + 1);
+            setContador(parseInt(contador + 1));
         }
         else {
              alert("Supera el stock disponible");
@@ -22,7 +22,7 @@ const ItemCount = ({producto, stock, initial, agregarAlCarrito, onAdd}) => {
     const restaContador = () => {
 
         if(contador > 1){
-            setContador(contador - 1)
+            setContador(parseInt(contador - 1));
         }
         else {
             alert("No puede quedar en 0");
@@ -40,7 +40,7 @@ const ItemCount = ({producto, stock, initial, agregarAlCarrito, onAdd}) => {
             <div>
                 <Card.Body>
                     <p><Button variant="secondary" onClick={restaContador}>-</Button> {contador} <Button variant="secondary" onClick={sumaContador}>+</Button></p>
-                    <Button variant="danger" onClick={() => {agregarAlCarrito(producto, contador); onAdd()}}>Agregar al Carrito</Button>
+                    <Button variant="danger" onClick={confirmar}>Agregar al Carrito</Button>
                 </Card.Body>
             </div>
         )
