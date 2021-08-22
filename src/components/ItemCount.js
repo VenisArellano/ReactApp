@@ -12,7 +12,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
     const sumaContador = () => {
 
         if(contador < stock){
-            setContador(parseInt(contador + 1));
+            setContador(contador + 1);
         }
         else {
              alert("Supera el stock disponible");
@@ -22,7 +22,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
     const restaContador = () => {
 
         if(contador > 1){
-            setContador(parseInt(contador - 1));
+            setContador(contador - 1);
         }
         else {
             alert("No puede quedar en 0");

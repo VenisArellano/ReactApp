@@ -2,11 +2,12 @@ import Boton from "./Boton";
 import useCart from "./useCart";
 import {Link} from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import {useContext} from "react";
 
 
 const Cart = () => {
 
-    const {cart} = useCart();
+    const {cart} = useContext(useCart);
 
     return(
         <>

@@ -1,14 +1,14 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import ItemCount from "./ItemCount";
-import {useState} from "react";
+import {useState, useContext} from "react";
 import {Link} from "react-router-dom";
 import useCart from "./useCart";
 
 
 const ItemDetail = ({items}) => {
 
-    const {addItem} = useCart();
+    const {addItem} = useContext(useCart);
 
     const [unidades, setUnidades] = useState();
 
@@ -34,7 +34,7 @@ const ItemDetail = ({items}) => {
                                 <Card.Title>{items.nombre}</Card.Title>
                                 <Card.Text>{items.descripcion}</Card.Text>
                                 <p> Precio: <strong>$ {items.precio * unidades}</strong></p>
-                                <ItemCount id={items.id} stock={items.stock} initial={0} onAdd={onAdd}/>
+                                <ItemCount id={items.id} stock={items.stock} initial={items.stock > 0 ? 1 : 0} onAdd={onAdd}/>
                                 <Link to="/cart"><Button variant="success" onClick={agregarItems}>Terminar Compra</Button></Link>
                             </Card.Body>
                         </Card>
@@ -54,7 +54,7 @@ const ItemDetail = ({items}) => {
                             <Card.Title>{items.nombre}</Card.Title>
                             <Card.Text>{items.descripcion}</Card.Text>
                             <p> Precio: <strong>$ {items.precio}</strong></p>
-                            <ItemCount id={items.id} stock={items.stock} initial={0} onAdd={onAdd}/>
+                            <ItemCount id={items.id} stock={items.stock} initial={items.stock > 0 ? 1 : 0} onAdd={onAdd}/>
                         </Card.Body>
                     </Card>
                     }

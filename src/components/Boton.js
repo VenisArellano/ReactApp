@@ -1,9 +1,10 @@
 import useCart from "./useCart"
 import Button from "react-bootstrap/Button";
+import {useContext} from "react";
 
 const Boton = ({id, text}) => {
 
-    const {removeItem, clear} = useCart();
+    const {removeItem, clear} = useContext(useCart);
     
     const accionBoton = ()=> {
         if(text === 'Eliminar'){
