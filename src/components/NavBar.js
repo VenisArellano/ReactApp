@@ -4,11 +4,18 @@ import Nav from "react-bootstrap/Nav";
 import rinconparts from "./img/logo/rinconparts.png";
 import CartWidget from "./CartWidget";
 import {Link} from "react-router-dom";
+import {useContext} from "react";
+import useCart from "./useCart";
 
 
 /* Barra de Navegacion */
 
 const NavBar = () => {
+
+    const {cart} = useContext(useCart);
+
+    let itemsTotales = cart.reduce((sum, value) => (typeof value.quantity == "number" ? sum + value.quantity : sum),0)
+    console.log(itemsTotales);
     
     return(
         <>
@@ -38,7 +45,16 @@ const NavBar = () => {
                         <Nav>
                             <Link to="/registrarse" className="categorias">Registrarse</Link>
                         </Nav>
-                        <CartWidget/>
+                        <div>
+                            {itemsTotales > 0 &&
+                                <>
+                                    <div p={1} flexShrink={1} >
+                                    <p className="colorText"><CartWidget/>{itemsTotales}</p>
+                                    </div>
+                                    <div p={1} flexShrink={1} ></div>
+                                </>
+                            }
+                        </div>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

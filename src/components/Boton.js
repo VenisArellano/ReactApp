@@ -16,7 +16,7 @@ const Boton = ({id, text}) => {
     }
     return (
 
-       <Button variant="danger" onClick={accionBoton}>{text}</Button>
+       <Button className="text" variant="danger" onClick={accionBoton}>{text}</Button>
     )
 }
 

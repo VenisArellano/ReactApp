@@ -48,3 +48,19 @@
 .item {
     order: 5; /* default is 0 */
 }
+
+.espacio {
+    word-spacing: pre-line;
+}
+
+.text {
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+.colorText {
+    color:blanchedalmond;
+    text-align: center;
+    align-content: center;
+}
