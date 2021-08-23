@@ -8,7 +8,7 @@ const CartProvider = ({children}) => {
         const [cart, setCart] = useState([]);
         
         const isInCart = (id) => {
-            return cart.some(obj => obj.item.id === id)
+            return cart.find(obj => obj.item.id === id)
         }
         
         const addItem = (item) => {

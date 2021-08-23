@@ -6,7 +6,7 @@ const Boton = ({id, text}) => {
 
     const {removeItem, clear} = useContext(useCart);
     
-    const accionBoton = ()=> {
+    const accionBoton = () => {
         if(text === 'Eliminar'){
             removeItem(id)
         } 
@@ -16,7 +16,7 @@ const Boton = ({id, text}) => {
     }
     return (
 
-       <Button onClick={accionBoton}>{text}</Button>
+       <Button variant="danger" onClick={accionBoton}>{text}</Button>
     )
 }
 

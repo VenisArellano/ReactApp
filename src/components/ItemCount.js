@@ -35,24 +35,26 @@ const ItemCount = ({stock, initial, onAdd}) => {
         }
     }
     
-    if(contador === initial & stock > 0){
         return (
-            <div>
-                <Card.Body>
-                    <p><Button variant="secondary" onClick={restaContador}>-</Button> {contador} <Button variant="secondary" onClick={sumaContador}>+</Button></p>
+            <>
+            {(stock > 0)
+                ?
+                <>
+                    <div>
+                        <Card.Body>
+                            <p><Button variant="secondary" onClick={restaContador}>-</Button> {contador} <Button variant="secondary" onClick={sumaContador}>+</Button></p>
+                        </Card.Body>
+                    </div>
                     <Button variant="danger" onClick={confirmar}>Agregar al Carrito</Button>
-                </Card.Body>
-            </div>
+                </>
+                :
+                <div>
+                    <Alert variant="danger">Producto Sin Stock</Alert>
+                    <Link to="/"><Button variant="dark">Ir Al Inicio</Button></Link>
+                </div>
+            }
+            </>
         )
-    }
-    else if(contador === initial & stock === 0){
-        return (
-            <div>
-                <Alert variant="danger">Producto Sin Stock</Alert>
-                <Link to="/"><Button variant="dark">Ir Al Inicio</Button></Link>
-            </div>
-        )
-    }
 }
 
 export default ItemCount;

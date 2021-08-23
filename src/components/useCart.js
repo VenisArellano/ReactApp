@@ -1,7 +1,7 @@
 import {createContext} from "react";
 
 
-const useCart = createContext();
+export const useCart = createContext();
 
 export const {Consumer, Provider} = useCart;
 

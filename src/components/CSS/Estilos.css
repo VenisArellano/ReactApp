@@ -22,3 +22,29 @@
 .navbar {
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
 }
+
+.imgCart {
+    width: 10rem;
+    height: 15rem;
+}
+
+.itemsCart {
+    display: flex;
+}
+
+.textCart {
+    text-align: center;
+    margin: 100px;
+}
+
+.botonEliminar {
+    text-align: center;
+}
+
+.container {
+    display: flex; /* or inline-flex */
+}
+
+.item {
+    order: 5; /* default is 0 */
+}
