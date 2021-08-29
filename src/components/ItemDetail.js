@@ -3,12 +3,12 @@ import Button from "react-bootstrap/Button";
 import ItemCount from "./ItemCount";
 import {useState, useContext} from "react";
 import {Link} from "react-router-dom";
-import useCart from "./useCart";
+import UseCart from "./UseCart";
 
 
 const ItemDetail = ({items}) => {
 
-    const {addItem} = useContext(useCart);
+    const {addItem} = useContext(UseCart);
 
     const [unidades, setUnidades] = useState();
 

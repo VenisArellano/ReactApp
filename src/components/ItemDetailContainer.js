@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
-import {stock} from "./stockProductos";
 import ItemDetail from "./ItemDetail";
 import {useParams} from "react-router-dom";
+import {firestore} from "./Firebase";
 
 /* Contenido de la Pagina */
 
@@ -11,17 +11,19 @@ const ItemDetailContainer = () => {
     const {id} = useParams();
 
     useEffect(() => {
-        const getItems = new Promise ((resolve, reject) => {
-            setTimeout(() => {
-                resolve(stock.find(items=>items.id == id))
-            }, 2000)
-        })
+        const collection = firestore.collection("productos")
 
-        getItems.then((detalle) => {
-            setItems(detalle)
-        })
-    }, [id])
-   
+        if(id) {
+            const filtrado = collection.doc(id)
+            const query = filtrado.get()
+
+            query.then((resultado) => {
+                const id = resultado.id
+                const data = resultado.data()
+                setItems({id, ...data})
+            })
+        }}, [id])
+    
     return(
         <>
             <ItemDetail items={items}/>

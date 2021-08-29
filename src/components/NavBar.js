@@ -5,17 +5,16 @@ import rinconparts from "./img/logo/rinconparts.png";
 import CartWidget from "./CartWidget";
 import {Link} from "react-router-dom";
 import {useContext} from "react";
-import useCart from "./useCart";
+import UseCart from "./UseCart";
 
 
 /* Barra de Navegacion */
 
 const NavBar = () => {
 
-    const {cart} = useContext(useCart);
+    const {cart} = useContext(UseCart);
 
     let itemsTotales = cart.reduce((sum, value) => (typeof value.quantity == "number" ? sum + value.quantity : sum),0)
-    console.log(itemsTotales);
     
     return(
         <>
@@ -46,13 +45,16 @@ const NavBar = () => {
                             <Link to="/registrarse" className="categorias">Registrarse</Link>
                         </Nav>
                         <div>
-                            {itemsTotales > 0 &&
+                            {(itemsTotales > 0) ?
                                 <>
-                                    <div p={1} flexShrink={1} >
-                                    <p className="colorText"><CartWidget/>{itemsTotales}</p>
+                                    <div>
+                                        <p className="colorText"><CartWidget/>{itemsTotales}</p>
                                     </div>
-                                    <div p={1} flexShrink={1} ></div>
                                 </>
+                                :
+                                    <div>
+                                        <CartWidget/>
+                                    </div>
                             }
                         </div>
                     </Navbar.Collapse>

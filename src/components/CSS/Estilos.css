@@ -24,7 +24,7 @@
 }
 
 .imgCart {
-    width: 10rem;
+    width: 15rem;
     height: 15rem;
 }
 
@@ -63,4 +63,14 @@
     color:blanchedalmond;
     text-align: center;
     align-content: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.itemsLista {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: wrap;
 }

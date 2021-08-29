@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {Provider} from "./useCart";
+import {Provider} from "./UseCart";
 
 
 

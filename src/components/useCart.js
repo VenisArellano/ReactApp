@@ -1,9 +1,9 @@
 import {createContext} from "react";
 
 
-export const useCart = createContext();
+export const UseCart = createContext();
 
-export const {Consumer, Provider} = useCart;
+export const {Consumer, Provider} = UseCart;
 
 
-export default useCart; 
+export default UseCart;

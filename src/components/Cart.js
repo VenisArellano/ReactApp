@@ -1,5 +1,5 @@
 import Boton from "./Boton";
-import useCart from "./useCart";
+import UseCart from "./UseCart";
 import {Link} from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import {useContext} from "react";
@@ -8,10 +8,9 @@ import Card from "react-bootstrap/Card";
 
 const Cart = () => {
 
-    const {cart} = useContext(useCart);
+    const {cart} = useContext(UseCart);
 
-    let precioTotal = cart.reduce((sum, value) => (typeof value.item.precio == "number" ? sum + value.item.precio : sum),0) 
-        console.log(precioTotal);
+    let precioTotal = cart.reduce((sum, value) => (typeof value.item.precio == "number" ? sum + value.item.precio : sum),0)
 
     return(
         <>
