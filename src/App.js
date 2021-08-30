@@ -33,6 +33,10 @@ const App = () => {
                     <Route path="/cart">
                         <Cart/>
                     </Route>
+
+                    <Route path="/contacto">
+                        <Contacto/>
+                    </Route>
                 </Switch>
             </CartProvider>
         </BrowserRouter>
