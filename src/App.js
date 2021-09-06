@@ -6,6 +6,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Cart from "./components/Cart";
 import "./components/CSS/Estilos.css";
 import CartProvider from "./components/CartProvider";
+import Contacto from "./components/Contacto";
 
 
 const App = () => {

@@ -17,6 +17,7 @@
 .carrito {
     width: 30px;
     height: 30px;
+    color: red;
 }
 
 .navbar {
@@ -73,4 +74,20 @@
     justify-content: space-around;
     align-items: stretch;
     flex-wrap: wrap;
+}
+
+.text1 {
+    text-align: center;
+    margin-left: 10px;
+}
+
+.ordenCompra {
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+.spinner {
+    margin: 5px;
+    padding: 5px;
 }

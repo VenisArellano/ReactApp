@@ -10,7 +10,7 @@ const Boton = ({id, text}) => {
         if(text === 'Eliminar'){
             removeItem(id)
         } 
-        else if (text === 'Vaciar Carrito'){
+        else if (text === 'Vaciar Carrito' ){
             clear()
         }
     }

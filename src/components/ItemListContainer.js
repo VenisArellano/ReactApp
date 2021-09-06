@@ -49,4 +49,4 @@ const ItemListContainer = ({informacion}) => {
     )
 }
 
-export default ItemListContainer
+export default ItemListContainer;

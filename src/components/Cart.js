@@ -2,15 +2,21 @@ import Boton from "./Boton";
 import UseCart from "./UseCart";
 import {Link} from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import Card from "react-bootstrap/Card";
+import OrdenContainer from "./OrdenContainer";
 
 
 const Cart = () => {
 
     const {cart} = useContext(UseCart);
+    const [checkout, setCheckout] = useState(false)
 
     let precioTotal = cart.reduce((sum, value) => (typeof value.item.precio == "number" ? sum + value.item.precio : sum),0)
+
+    const handleCheckout = () => {
+        setCheckout(true)
+    } 
 
     return(
         <>
@@ -40,6 +46,11 @@ const Cart = () => {
                                 <Link to='/'>
                                     <Button variant="dark">Seguir Comprando</Button>
                                 </Link>
+                        
+                                <Button className="text1" variant="info" onClick={handleCheckout}>Comprar</Button>
+                                {checkout &&
+                                    <OrdenContainer total={precioTotal}/>
+                                }
                             </div>
                         </div>
                 </div>

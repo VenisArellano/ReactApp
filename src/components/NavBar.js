@@ -6,6 +6,7 @@ import CartWidget from "./CartWidget";
 import {Link} from "react-router-dom";
 import {useContext} from "react";
 import UseCart from "./UseCart";
+import Badge from 'react-bootstrap/Badge'
 
 
 /* Barra de Navegacion */
@@ -48,7 +49,7 @@ const NavBar = () => {
                             {(itemsTotales > 0) ?
                                 <>
                                     <div>
-                                        <p className="colorText"><CartWidget/>{itemsTotales}</p>
+                                        <p className="colorText"><CartWidget/><Badge bg="dark">{itemsTotales}</Badge></p>
                                     </div>
                                 </>
                                 :

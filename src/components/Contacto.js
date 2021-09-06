@@ -24,7 +24,7 @@ const Contacto = () => {
                     </htmlform>
                 </div>
                 <div>
-                    <img className="" src={contacto_img} alt="imagen" />
+                    <img className="" src="" alt="imagen" />
                 </div>
             </section>
         </>
