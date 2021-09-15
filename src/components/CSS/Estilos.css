@@ -4,6 +4,10 @@
     padding: 0;
  }
 
+ body{
+    background-color: #ebebeb;
+ }
+
 .categorias {
     text-decoration: none;
     color:rgb(158, 154, 154);
@@ -90,4 +94,51 @@
 .spinner {
     margin: 5px;
     padding: 5px;
+}
+
+.cardItem {
+    width: 14rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.imgCard {
+    width: 220px;
+    height: 224px;
+}
+
+.cardDetail {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.botonCompra {
+    margin-left: 8px;
 }

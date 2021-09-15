@@ -5,8 +5,8 @@ import {Link} from "react-router-dom";
 const Item = ({producto}) => {
 
     return (
-            <Card style={{ width: '15rem'}}>
-                <img src={producto.img} alt={producto.nombre} />
+            <Card className="cardItem">
+                <img className="imgCard" src={producto.img} alt={producto.nombre} />
                 <Card.Body>
                     <Link to={`/item/${producto.id}`} className="text-decoration-none">
                         <Card.Title>{producto.nombre}</Card.Title>

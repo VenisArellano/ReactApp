@@ -7,6 +7,7 @@ import Cart from "./components/Cart";
 import "./components/CSS/Estilos.css";
 import CartProvider from "./components/CartProvider";
 import Contacto from "./components/Contacto";
+import OcProvider from "./components/OcProvider";
 
 
 const App = () => {
@@ -16,29 +17,31 @@ const App = () => {
     return(
         <BrowserRouter>
             <CartProvider>
-                <Header/>
+                <OcProvider>
+                    <Header/>
 
-                <Switch>
-                    <Route path="/" exact>
-                        <ItemListContainer informacion={greeting}/>
-                    </Route>
+                    <Switch>
+                        <Route path="/" exact>
+                            <ItemListContainer informacion={greeting}/>
+                        </Route>
 
-                    <Route path="/tipo/:id">
-                        <ItemListContainer informacion={greeting}/>
-                    </Route>
+                        <Route path="/tipo/:id">
+                            <ItemListContainer informacion={greeting}/>
+                        </Route>
 
-                    <Route path="/item/:id">
-                        <ItemDetailContainer/>
-                    </Route>
+                        <Route path="/item/:id">
+                            <ItemDetailContainer/>
+                        </Route>
 
-                    <Route path="/cart">
-                        <Cart/>
-                    </Route>
+                        <Route path="/cart">
+                            <Cart/>
+                        </Route>
 
-                    <Route path="/contacto">
-                        <Contacto/>
-                    </Route>
-                </Switch>
+                        <Route path="/contacto">
+                            <Contacto/>
+                        </Route>
+                    </Switch>
+                </OcProvider>
             </CartProvider>
         </BrowserRouter>
     )

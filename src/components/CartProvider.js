@@ -6,6 +6,7 @@ import {Provider} from "./UseCart";
 const CartProvider = ({children}) => {
  
         const [cart, setCart] = useState([]);
+        const [totalPrice, setTotalPrice] = useState();
         
         const isInCart = (id) => {
             return cart.find(obj => obj.item.id === id)
@@ -22,7 +23,7 @@ const CartProvider = ({children}) => {
             else {
                 setCart([...cart, item])
             }
-}
+        }
     
         const removeItem = (itemID) => {
                 let index = cart.findIndex((obj => obj.item.id == itemID));
@@ -33,13 +34,20 @@ const CartProvider = ({children}) => {
         const clear = () => {
             setCart([])
         }
+
+        const totalCart = ()=> {
+            let total = cart.reduce((sum, value) => (typeof value.item.precio == "number" ? sum + (value.item.precio * value.quantity) : sum),0)
+                setTotalPrice(total)
+        }
     
         const ContextValue = {
             cart,
             addItem,
             removeItem,
             clear,
-            isInCart
+            isInCart,
+            totalCart,
+            totalPrice
         }
     
         return (
@@ -48,6 +56,6 @@ const CartProvider = ({children}) => {
             </Provider>
     
         )
-    }
+}
     
 export default CartProvider; 

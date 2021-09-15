@@ -41,10 +41,7 @@ const NavBar = () => {
 
                             <Link to="/tipo/Accesorios" className="categorias">Accesorios</Link>
                         </Nav>
-                        
-                        <Nav>
-                            <Link to="/registrarse" className="categorias">Registrarse</Link>
-                        </Nav>
+                
                         <div>
                             {(itemsTotales > 0) ?
                                 <>
